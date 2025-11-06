@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏦 Loan Approval Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/predict" method="post">
+            <h2>🏦 Loan Approval Prediction</h2>
+
+            <div class="form-grid">
+                <div>
+                    <label>👤 Gender</label>
+                    <select name="Gender" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>💍 Married</label>
+                    <select name="Married" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>👶 Dependents</label>
+                    <input type="text" name="Dependents" placeholder="0,1,2,3+" required>
+                </div>
+
+                <div>
+                    <label>🎓 Education</label>
+                    <select name="Education" required>
+                        <option>Graduate</option>
+                        <option>Not Graduate</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>💼 Self Employed</label>
+                    <select name="Self_Employed" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>💰 Applicant Income</label>
+                    <input type="number" name="ApplicantIncome" placeholder="Enter income" required>
+                </div>
+
+                <div>
+                    <label>🤝 Coapplicant Income</label>
+                    <input type="number" name="CoapplicantIncome" placeholder="Enter coapplicant income" required>
+                </div>
+
+                <div>
+                    <label>🏦 Loan Amount</label>
+                    <input type="number" name="LoanAmount" placeholder="Enter loan amount" required>
+                </div>
+
+                <div>
+                    <label>📅 Loan Term (Days)</label>
+                    <input type="number" name="Loan_Amount_Term" placeholder="Enter term" required>
+                </div>
+
+                <div>
+                    <label>⭐ Credit History</label>
+                    <select name="Credit_History" required>
+                        <option value="1.0">1.0 - Good</option>
+                        <option value="0.0">0.0 - Poor</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>🏙️ Property Area</label>
+                    <select name="Property_Area" required>
+                        <option>Urban</option>
+                        <option>Semiurban</option>
+                        <option>Rural</option>
+                    </select>
+                </div>
+
+                <button type="submit">🔍 Predict Loan Status</button>
+
+                {% if prediction_text %}
+                <div class="result">
+                    {% if 'Approved' in prediction_text %}
+                        <span class="approved">{{ prediction_text }}</span>
+                    {% else %}
+                        <span class="rejected">{{ prediction_text }}</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
