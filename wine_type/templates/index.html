@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍇 Wine Type Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="glass-card">
+      <h1>🍷 Wine Type Prediction</h1>
+      <p class="subtitle">Enter the wine’s chemical properties below to predict its type.</p>
+
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="grid-container">
+          <div class="input-group"><label>Fixed Acidity</label><input type="number" step="any" name="fixed_acidity" required></div>
+          <div class="input-group"><label>Volatile Acidity</label><input type="number" step="any" name="volatile_acidity" required></div>
+          <div class="input-group"><label>Citric Acid</label><input type="number" step="any" name="citric_acid" required></div>
+          <div class="input-group"><label>Residual Sugar</label><input type="number" step="any" name="residual_sugar" required></div>
+          <div class="input-group"><label>Chlorides</label><input type="number" step="any" name="chlorides" required></div>
+          <div class="input-group"><label>Free Sulfur Dioxide</label><input type="number" step="any" name="free_sulfur_dioxide" required></div>
+          <div class="input-group"><label>Total Sulfur Dioxide</label><input type="number" step="any" name="total_sulfur_dioxide" required></div>
+          <div class="input-group"><label>Density</label><input type="number" step="any" name="density" required></div>
+          <div class="input-group"><label>pH</label><input type="number" step="any" name="pH" required></div>
+          <div class="input-group"><label>Sulphates</label><input type="number" step="any" name="sulphates" required></div>
+          <div class="input-group"><label>Alcohol</label><input type="number" step="any" name="alcohol" required></div>
+          <div class="input-group"><label>Quality</label><input type="number" step="any" name="quality" required></div>
+        </div>
+
+        <button type="submit" class="btn">🔮 Predict Wine Type</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html
